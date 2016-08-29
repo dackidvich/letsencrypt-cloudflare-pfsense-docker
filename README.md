@@ -55,3 +55,9 @@ organizationalUnitName          = yourunit (or `None`)
 commonName                      = mydomain.com
 emailAddress                    = admin@mydomain.com
 ```
+
+# Installing/Using
+Edit `docker-create.sh` to make it fit your needs, namely the `/config` mounting.
+Execute `./docker-create.sh` after editing.
+
+An example `letsencrypt-shell` is included to allow getting root shell access to the container.
