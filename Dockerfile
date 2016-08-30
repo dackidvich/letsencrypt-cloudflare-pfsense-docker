@@ -24,7 +24,7 @@ RUN mkdir -p /etc/apt/apt.conf.d \
 	&& mkdir /root/.ssh \
 	&& chmod 700 /root/.ssh \
 	&& chmod 777 /scripts/letsencrypt_*.sh \
-	&& echo "17 5 * * * /bin/bash /scripts/letsencrypt_cron.sh" | crontab - \
+	&& echo "17 5 * * * /bin/bash /scripts/letsencrypt_cron.sh >>/config/cron_output 2>&1" | crontab - \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME /config

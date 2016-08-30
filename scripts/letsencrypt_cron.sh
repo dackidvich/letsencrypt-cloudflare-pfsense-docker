@@ -1,6 +1,10 @@
 #!/bin/bash
 
-date >/config/last_run
+# output the last runtime
+echo "
+===============================================================================
+Last Runtime: $(date)
+"
 
 export SSHCONF='/config/ssh_config'
 export OPENSSL_CNF="/config/openssl.cnf"
