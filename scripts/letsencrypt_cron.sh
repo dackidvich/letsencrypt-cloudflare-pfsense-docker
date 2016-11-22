@@ -6,17 +6,12 @@ echo "
 Last Runtime: $(date)
 "
 
-export SSHCONF='/config/ssh_config'
-export OPENSSL_CNF="/config/openssl.cnf"
-
-if [ -f ~/.ssh/known_hosts ]; then
-	ssh-keyscan -H $SSHHOST -F $SSHCONF >~/.ssh/known_hosts
-	chmod 600 ~/.ssh/known_hosts
-fi
+export SSHCONF=/config/ssh_config
+export OPENSSL_CNF=/config/openssl.cnf
 
 echo " Checking for configuration"
 if [ ! -f $OPENSSL_CNF ]; then
-	echo "ERROR: Cannot access /config/openssl.cnf"
+	echo "ERROR: Cannot access $OPENSSL_CNF"
 	exit 1
 fi
 if [ ! -f /config/domainlist ]; then
@@ -77,4 +72,7 @@ if [ ! -f $SSHCONF ]; then
 	"
 fi
 
-. /scripts/letsencrypt_autopfsense.sh
+if [ -z "$1" ]; then
+	. /scripts/letsencrypt_updatecert.sh
+fi
+. /scripts/letsencrypt_pfsense.sh
