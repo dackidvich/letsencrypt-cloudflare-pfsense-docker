@@ -48,7 +48,7 @@ if [ "$config" == "0" ]; then
 	echo "
 	ERROR: Misconfigured.	Ensure /config/config.sh exists, is executable, and contains the following:
 
-	# letsencrypt.sh options
+	# dehydrated options
 	KEYSIZE="4096"	# optional, example of letsencrypt options
 
 	# Cloudflare information

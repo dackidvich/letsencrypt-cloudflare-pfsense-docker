@@ -11,8 +11,8 @@ done </config/domainlist
 
 script=$(readlink -f "$0")
 dir=$(dirname "$script")
-pushd $dir/letsencrypt.sh
-. ./letsencrypt.sh -c -t dns-01 -k ../letsencrypt-cloudflare-hook/hook.py -o $certsdir $domains
+pushd $dir/dehydrated
+. ./dehydrated -c -t dns-01 -k ../letsencrypt-cloudflare-hook/hook.py -o $certsdir $domains
 
 # Obtain the cert information
 cdir=$(find $certsdir -maxdepth 2 -mindepth 1 -type d)

@@ -14,7 +14,7 @@ RUN mkdir -p /etc/apt/apt.conf.d \
 	&& apt-get install -qy --no-install-recommends wget git python3 openssh-client xmlstarlet \
 	&& apt-get autoremove -y \
 	&& apt-get autoclean -y \
-	&& git clone https://github.com/lukas2511/letsencrypt.sh.git /scripts/letsencrypt.sh \
+	&& git clone https://github.com/lukas2511/dehydrated.git /scripts/dehydrated \
 	&& git clone https://github.com/kappataumu/letsencrypt-cloudflare-hook /scripts/letsencrypt-cloudflare-hook \
 	&& ln -s /usr/bin/python3 /usr/bin/python \
 	&& wget -nv -O/tmp/get-pip.py "https://bootstrap.pypa.io/get-pip.py" \
