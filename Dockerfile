@@ -1,4 +1,4 @@
-FROM quantumobject/docker-baseimage:16.04
+FROM quantumobject/docker-baseimage:16.10
 
 ENV PYTHONIOENCODING=UTF-8
 ENV LC_ALL C.UTF-8
@@ -24,7 +24,7 @@ RUN mkdir -p /etc/apt/apt.conf.d \
 	&& mkdir /root/.ssh \
 	&& chmod 700 /root/.ssh \
 	&& chmod 777 /scripts/letsencrypt_*.sh \
-	&& echo "17 5 * * * /bin/bash /scripts/letsencrypt_cron.sh >>/config/cron_output 2>&1" | crontab - \
+	&& echo -e "5 * * * * /bin/bash /scripts/letsencrypt_cron.sh >>/config/cron_output 2>&1\r\n0 5 * * * /bin/bash rm -f /scripts/lock" | crontab - \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME /config
